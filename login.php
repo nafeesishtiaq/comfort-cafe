@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
                 exit();
             } else if ($row['UserRole'] == 'user') {
                 $_SESSION['user_name'] = $row['FirstName'];
-                header('Location: user.php');
+                header('Location: menu.php');
                 exit();
             }
         } else {
