@@ -70,13 +70,32 @@ function updateCartDisplay() {
 }
 
 // Add event listeners for the "Add to Cart" buttons
+// document.querySelectorAll(".menu-item button").forEach((button) => {
+//   button.addEventListener("click", (e) => {
+//     const itemElement = e.target.parentElement;
+//     const itemName = itemElement.querySelector("h4").textContent;
+//     const itemPrice = itemElement
+//       .querySelector("p:nth-child(3)")
+//       .textContent.split("$")[1];
+//     addToCart(itemName, itemPrice);
+//   });
+// });
 document.querySelectorAll(".menu-item button").forEach((button) => {
   button.addEventListener("click", (e) => {
-    const itemElement = e.target.parentElement;
-    const itemName = itemElement.querySelector("h4").textContent;
-    const itemPrice = itemElement
-      .querySelector("p:nth-child(3)")
-      .textContent.split("$")[1];
-    addToCart(itemName, itemPrice);
+    const itemElement = e.target.closest(".menu-item"); // Target the correct menu item
+    const itemName = itemElement.querySelector("h4").textContent.trim();
+
+    // Select the price text using the correct class
+    const priceText = itemElement
+      .querySelector(".item-price")
+      .textContent.trim();
+    const itemPrice = parseFloat(priceText.replace(/[^0-9.]/g, "")); // Extract numeric value
+
+    if (!isNaN(itemPrice)) {
+      console.log(`Adding to cart: ${itemName}, Price: ${itemPrice}`); // Debug log
+      addToCart(itemName, itemPrice);
+    } else {
+      console.error(`Invalid price detected: "${priceText}"`); // Error log
+    }
   });
 });

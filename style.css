@@ -231,6 +231,11 @@ header button:hover {
 
 /*menu*/
 /* Styling for menu items with images */
+
+.menu-container {
+  width: 70%; /* Reduced width to make space for the cart */
+  margin: auto;
+}
 .menu-item {
   background-color: #fff;
   border: 1px solid #ddd;

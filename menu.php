@@ -63,8 +63,8 @@ if (!isset($_SESSION['user_name'])) {
                     echo "<div class='menu-item'>";
                     echo "<img src='" . $itemRow['ImagePath'] . "' alt='" . $itemRow['ItemName'] . "' class='food-img'>";
                     echo "<h4>" . $itemRow['ItemName'] . "</h4>";
-                    echo "<p>Ingredients: " . $itemRow['Ingredients'] . "</p>";
-                    echo "<p>Price: $" . $itemRow['Price'] . "</p>";
+                    echo "<p class='item-ingredients'>Ingredients: " . $itemRow['Ingredients'] . "</p>";
+                    echo "<p class='item-price'>Price: $" . $itemRow['Price'] . "</p>";
                     echo "<button>Add to cart</button>";
                     echo "</div>";
                 }
